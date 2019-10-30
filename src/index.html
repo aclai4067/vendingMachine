@@ -7,6 +7,23 @@
   <title>Vending Machine</title>
 </head>
 <body>
-  <button type='button' class='btn btn-light'>I'm a button</button>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Vending Machine</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <button type='button' id='logoutBtn' class='nav-link btn btn-info hide' href='#'>Logout</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id='auth'></div>
+
+  <div id='stock' class='hide'>Stock</div>
+  <div id='machine'>Machine</div>
 </body>
 </html>
