@@ -1,0 +1,8 @@
+{
+  "machine1":{
+    "location": "here"
+  },
+  "machine2":{
+    "location": "there"
+  }
+}
