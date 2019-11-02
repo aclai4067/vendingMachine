@@ -1,6 +1,7 @@
 import machineData from './machineData';
 import positionData from './positionData';
 import snackPositionData from './snackPositionData';
+import snackData from './snackData';
 
 const getCompleteMachine = () => new Promise((resolve, reject) => {
   //  get machine - returns machine1
@@ -10,7 +11,12 @@ const getCompleteMachine = () => new Promise((resolve, reject) => {
     .then((singleMachine) => positionData.getAllPositionsByMachineId(singleMachine.id))
     .then((positions) => {
       snackPositionData.getAllSnackPositionsByMachineId(positions[0].machineId)
-        .then((snackPosition) => resolve(snackPosition));
+        .then((snackPositions) => {
+          snackData.getSnacksByUid(positions[0].uid).then((snacks) => {
+            console.log('snackpos', snackPositions);
+            resolve(snacks);
+          });
+        });
     }).catch((err) => reject(err));
   //  use uid of snack positions/positions to get snacks
   //  smash - return an array of positions (in order A1, A2, A3, B1...)
