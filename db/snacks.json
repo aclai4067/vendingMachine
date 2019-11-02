@@ -1,0 +1,42 @@
+{
+  "snack1":{
+    "imgUrl": "https://www.dollargeneral.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/0/0/00773801.jpg",
+    "name": "Skittles",
+    "price": 90,
+    "currentStocked": 20,
+    "lifetimeNum": 1000,
+    "uid": "fUdZrAbOqkOHzh755Jah4FVbrc53"
+  },
+  "snack2":{
+    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/81EUE1oZURL._SY679_.jpg",
+    "name": "Sour Cream and Onion Lays",
+    "price": 75,
+    "currentStocked": 2,
+    "lifetimeNum": 450,
+    "uid": "fUdZrAbOqkOHzh755Jah4FVbrc53"
+  },
+  "snack3":{
+    "imgUrl": "https://resources.cleanitsupply.com/LARGE/USSCO/309350.JPG",
+    "name": "ChexMix",
+    "price": 55,
+    "currentStocked": 3,
+    "lifetimeNum": 80,
+    "uid": "fUdZrAbOqkOHzh755Jah4FVbrc53"
+  },
+  "snack4":{
+    "imgUrl": "https://www.dollargeneral.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/0/0/00028400420730_0.jpg",
+    "name": "Doritos",
+    "price": 75,
+    "currentStocked": 12,
+    "lifetimeNum": 980,
+    "uid": "fUdZrAbOqkOHzh755Jah4FVbrc53"
+  },
+  "snack5":{
+    "imgUrl": "https://images-na.ssl-images-amazon.com/images/I/71jcEeKRJiL._SX425_PIbundle-6,TopRight,0,0_AA425SH20_.jpg",
+    "name": "Twizzlers",
+    "price": 25,
+    "currentStocked": 24,
+    "lifetimeNum": 25,
+    "uid": "12345"
+  }
+}
