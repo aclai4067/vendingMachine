@@ -12,7 +12,7 @@ const getAllPositionsByMachineId = (machId) => new Promise((resolve, reject) => 
         demPositions[fbId].id = fbId;
         positions.push(demPositions[fbId]);
       });
-      resolve(positions); //  hard coding first machine only
+      resolve(positions);
     }).catch((error) => reject(error));
 });
 
