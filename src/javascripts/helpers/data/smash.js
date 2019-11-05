@@ -34,4 +34,29 @@ const getCompleteMachine = () => new Promise((resolve, reject) => {
   //  so positions should have position.snack if a snack exists that that position
 });
 
-export default { getCompleteMachine };
+const getSnacksWithPoitions = (uid) => new Promise((resolve, reject) => {
+  machineData.getMachine()
+    .then((singleMachine) => positionData.getAllPositionsByMachineId(singleMachine.id))
+    .then((positions) => {
+      snackPositionData.getAllSnackPositionsByMachineId(positions[0].machineId)
+        .then((snackPositions) => {
+          snackData.getSnacksByUid(uid).then((snacks) => {
+            const newSnacks = [];
+            snacks.forEach((snack) => {
+              const newSnack = { ...snack };
+              const getSnackPosition = snackPositions.find((x) => x.snackId === newSnack.id);
+              if (getSnackPosition) {
+                const getPosition = positions.find((y) => y.id === getSnackPosition.positionId);
+                newSnack.position = getPosition;
+              } else {
+                newSnack.position = {};
+              }
+              newSnacks.push(newSnack);
+            });
+            resolve(newSnacks);
+          });
+        });
+    }).catch((err) => reject(err));
+});
+
+export default { getCompleteMachine, getSnacksWithPoitions };
