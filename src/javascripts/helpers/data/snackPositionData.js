@@ -16,4 +16,6 @@ const getAllSnackPositionsByMachineId = (machId) => new Promise((resolve, reject
     }).catch((error) => reject(error));
 });
 
-export default { getAllSnackPositionsByMachineId };
+const deleteSnackPosition = (snackPosId) => axios.delete(`${baseUrl}/snackPositions/${snackPosId}.json`);
+
+export default { getAllSnackPositionsByMachineId, deleteSnackPosition };
