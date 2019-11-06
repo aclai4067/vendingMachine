@@ -7,6 +7,7 @@ import utilities from '../../helpers/utilities';
 import snackPositionsData from '../../helpers/data/snackPositionData';
 import stockCard from '../stockCard/stockCard';
 import machine from '../machine/machine';
+import snackData from '../../helpers/data/snackData';
 
 const deleteFromMachine = (e) => {
   e.stopImmediatePropagation();
@@ -44,11 +45,33 @@ const addToMachine = (e) => {
     .catch((err) => console.error(err));
 };
 
+const addNewSnack = (e) => {
+  e.stopImmediatePropagation();
+  const { uid } = firebase.auth().currentUser;
+  const newSnack = {
+    imgUrl: $('#snack-image-url').val(),
+    name: $('#snack-name').val(),
+    price: $('#snack-price').val() * 1,
+    currentStocked: 0,
+    lifetimeNum: 0,
+    uid,
+  };
+  snackData.saveNewSnack(newSnack)
+    .then(() => {
+      $('#exampleModal').modal('hide');
+      // eslint-disable-next-line no-use-before-define
+      buildStocker(uid);
+    }).catch((err) => console.error(err));
+};
+
 const buildStocker = (uid) => {
   smash.getSnacksWithPoitions(uid)
     .then((snacks) => {
       let stockString = `
         <h2>STOCK THE MACHINE</h2>
+        <button type="button" class="btn btn-outline-light" data-toggle="modal" data-target="#exampleModal">
+          Add Snack
+        </button>
         <div class='row d-flex- flex-wrap mb-2'>
       `;
       snacks.forEach((snack) => {
@@ -58,6 +81,7 @@ const buildStocker = (uid) => {
       utilities.printToDom('stock', stockString);
       $('#stock').on('click', '.deleteSnackPosition', deleteFromMachine);
       $('#stock').on('click', '.addSnackPosition', addToMachine);
+      $('#add-new-snack').click(addNewSnack);
     })
     .catch((err) => console.error(err));
 };
