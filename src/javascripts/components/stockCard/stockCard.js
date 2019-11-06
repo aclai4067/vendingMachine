@@ -6,6 +6,7 @@ const makeSnack = (snack) => {
   <div class='card-body'>
     <h3>${snack.name}</h3>
     <p>$${(snack.price / 100).toFixed(2)}</p>
+    <button id='snack-${snack.id}' class='btn btn-secondary quick-stock'>Stock 5</button>
   </div>
   <div>`;
   if (snack.snackPosId !== '') {
