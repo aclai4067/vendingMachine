@@ -6,9 +6,12 @@ const makeSnack = (position) => {
       <div class='card col-4 text-center d-flex flex-column justify-content-between'>
         <h3>${item.name}</h3>
         <img class='card-img' src='${item.imgUrl}' />
-        <div>
+        <div class='card-body'>
           <p>$${(item.price / 100).toFixed(2)}</p>
-          <p>${position.position}</p>
+          <p>${item.currentStocked} available</p>
+        </div>
+        <div>
+          <button id='buy-${item.id}' class='btn btn-info buySnack ${item.currentStocked < 1 ? 'disabled' : ''}'>${position.position} - Purchase</button>
         </div>
       </div>
     `;
