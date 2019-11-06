@@ -13,7 +13,6 @@ const init = () => {
   authData.checkLoginStatus();
   nav.logoutEvent();
   machine.buildMachine();
-  console.log('it works', firebase.apps);
 };
 
 init();

@@ -32,4 +32,19 @@ const restock = (snackId, restockNum) => new Promise((resolve, reject) => {
     }).catch((err) => reject(err));
 });
 
-export default { getSnacksByUid, saveNewSnack, restock };
+const purchaseSnack = (snackId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/snacks/${snackId}.json`)
+    .then((result) => {
+      const snackObj = result.data;
+      snackObj.currentStocked = snackObj.currentStocked === 0 ? 0 : snackObj.currentStocked -= 1;
+      changeSnack(snackId, snackObj);
+      resolve();
+    }).catch((err) => reject(err));
+});
+
+export default {
+  getSnacksByUid,
+  saveNewSnack,
+  restock,
+  purchaseSnack,
+};
